@@ -1,1 +1,34 @@
-node_modules/
+## Node Files ##
+node_modules
+npm-debug.log
+
+## Intellij Files ##
+auth-pages.iml
+.idea
+
+## VS Code Files ##
+launch.json
+
+## OS Files ##
+.DS_Store
+.DS_Store?
+thumbs.db
+
+## Logs ##
+*.log
+log/
+
+## Heap dumps ##
+*.heapsnapshot
+
+## Build files ##
+build
+packaging/rpm/rpm-contents
+packaging/rpm/*.rpm
+src/server/assets/
+public
+
+tmp/
+
+*.swp
+.babelrc
