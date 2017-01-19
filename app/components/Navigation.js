@@ -14,7 +14,7 @@ class Navigation extends Component {
             <IndexLink to = '/' activeClassName = 'active-link'>Timer</IndexLink>
           </li>
           <li>
-            <Link to = '/' activeClassName = 'active-link'>Counter</Link>
+            <Link to = '/countdown' activeClassName = 'active-link'>Counter</Link>
           </li>
         </ul>
        </div>
