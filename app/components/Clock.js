@@ -15,16 +15,23 @@ class Clock extends Component {
 		return `${minutes} : ${seconds}`;
 	}
 	render() {
-		return (
-			<div>
-			Clock Page
+		const {totalSeconds} = this.props;
+
+		return (	
+			<div className="clock">
+				<span className="clock-text">
+				{this.formatSeconds(totalSeconds)}
+				</span>
 			</div>
 		);
 	}
 }
 
+Clock.defaultProps = () => {
+	totalSeconds; 0
+}
 Clock.propTypes = {
-
+	totalSeconds: React.PropTypes.number
 };
 
 export default Clock;

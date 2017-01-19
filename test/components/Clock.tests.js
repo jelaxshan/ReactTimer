@@ -2,11 +2,19 @@ import { expect } from 'chai';
 import Clock from '../../app/components/Clock';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {shallow} from 'enzyme';
- 
+import { shallow } from 'enzyme';
+
+
 describe('Clock', () => {
   it('should exist', () => {
     expect(Clock).to.exist;
+  });
+});
+
+describe('render', () => {
+  it('should render clock to output', () => {
+    const clock = shallow(<Clock totalSeconds={62}/>);
+    expect(clock.text()).to.equal('01 : 02');
   });
 });
 

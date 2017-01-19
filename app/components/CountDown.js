@@ -1,10 +1,11 @@
 import React, {Component, PropTypes} from 'react';
+import Clock from 'Clock';
 
 class Countdown extends Component {
   render() {
     return (
       <div>
-        Countdown page
+        <Clock totalSeconds={129}/>
       </div>
     );
   }
