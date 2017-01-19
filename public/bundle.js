@@ -133,18 +133,18 @@
 	
 	var _Countdown2 = _interopRequireDefault(_Countdown);
 	
-	var _Timer = __webpack_require__(/*! Timer */ 253);
+	var _Timer = __webpack_require__(/*! Timer */ 254);
 	
 	var _Timer2 = _interopRequireDefault(_Timer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// Load foundation
-	__webpack_require__(/*! style!css!foundation-sites/dist/foundation.min.css */ 254);
+	__webpack_require__(/*! style!css!foundation-sites/dist/foundation.min.css */ 255);
 	$(document).foundation();
 	
 	// App css
-	__webpack_require__(/*! style!css!sass!applicationStyles */ 258);
+	__webpack_require__(/*! style!css!sass!applicationStyles */ 259);
 	
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRouter.Router,
@@ -28118,18 +28118,13 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(_Navigation2.default, null),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            null,
-	            _react2.default.createElement(_Navigation2.default, null),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              'Main.jsx Rendered'
-	            ),
+	            { className: 'column small-centered medium-6 large-4' },
 	            this.props.children
 	          )
 	        )
@@ -28262,6 +28257,10 @@
 	
 	var _Clock2 = _interopRequireDefault(_Clock);
 	
+	var _CountdownForm = __webpack_require__(/*! ./CountdownForm */ 253);
+	
+	var _CountdownForm2 = _interopRequireDefault(_CountdownForm);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28273,19 +28272,34 @@
 	var Countdown = function (_Component) {
 	  _inherits(Countdown, _Component);
 	
-	  function Countdown() {
+	  function Countdown(props, context) {
 	    _classCallCheck(this, Countdown);
 	
-	    return _possibleConstructorReturn(this, (Countdown.__proto__ || Object.getPrototypeOf(Countdown)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Countdown.__proto__ || Object.getPrototypeOf(Countdown)).call(this, props, context));
+	
+	    _this.handleSetCountdown = function (seconds) {
+	      _this.setState({
+	        count: seconds
+	      });
+	    };
+	
+	    _this.state = {
+	      count: 0
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(Countdown, [{
 	    key: 'render',
 	    value: function render() {
+	      var count = this.state.count;
+	
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_Clock2.default, { totalSeconds: 129 })
+	        _react2.default.createElement(_Clock2.default, { totalSeconds: count }),
+	        _react2.default.createElement(_CountdownForm2.default, { onSetCountdown: this.handleSetCountdown })
 	      );
 	    }
 	  }]);
@@ -28384,6 +28398,85 @@
 
 /***/ },
 /* 253 */
+/*!*****************************************!*\
+  !*** ./app/components/CountdownForm.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CountdownForm = function (_Component) {
+	  _inherits(CountdownForm, _Component);
+	
+	  function CountdownForm() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
+	    _classCallCheck(this, CountdownForm);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CountdownForm.__proto__ || Object.getPrototypeOf(CountdownForm)).call.apply(_ref, [this].concat(args))), _this), _this.onSubmit = function (e) {
+	      e.preventDefault();
+	      var stringSeconds = _this.refs.seconds.value;
+	
+	      if (stringSeconds.match(/^[0-9]*$/)) {
+	        _this.refs.seconds.value = '';
+	        _this.props.onSetCountdown(parseInt(stringSeconds, 10));
+	      }
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+	
+	  _createClass(CountdownForm, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'form',
+	          { ref: 'form', onSubmit: this.onSubmit, className: 'countdown-form' },
+	          _react2.default.createElement('input', { type: 'text', ref: 'seconds', placeholder: 'Enter time in seconds' }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'button expanded' },
+	            'Start'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return CountdownForm;
+	}(_react.Component);
+	
+	CountdownForm.propTypes = {};
+	
+	exports.default = CountdownForm;
+
+/***/ },
+/* 254 */
 /*!*********************************!*\
   !*** ./app/components/Timer.js ***!
   \*********************************/
@@ -28437,7 +28530,7 @@
 	exports.default = Timer;
 
 /***/ },
-/* 254 */
+/* 255 */
 /*!************************************************************************************!*\
   !*** ./~/style-loader!./~/css-loader!./~/foundation-sites/dist/foundation.min.css ***!
   \************************************************************************************/
@@ -28446,10 +28539,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../css-loader!./foundation.min.css */ 255);
+	var content = __webpack_require__(/*! !./../../css-loader!./foundation.min.css */ 256);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 257)(content, {});
+	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -28466,13 +28559,13 @@
 	}
 
 /***/ },
-/* 255 */
+/* 256 */
 /*!*******************************************************************!*\
   !*** ./~/css-loader!./~/foundation-sites/dist/foundation.min.css ***!
   \*******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 256)();
+	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 257)();
 	// imports
 	
 	
@@ -28483,7 +28576,7 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -28542,7 +28635,7 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -28797,7 +28890,7 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /*!*****************************************************************************!*\
   !*** ./~/style-loader!./~/css-loader!./~/sass-loader!./app/styles/app.scss ***!
   \*****************************************************************************/
@@ -28806,10 +28899,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./app.scss */ 259);
+	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./app.scss */ 260);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 257)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -28826,13 +28919,13 @@
 	}
 
 /***/ },
-/* 259 */
+/* 260 */
 /*!************************************************************!*\
   !*** ./~/css-loader!./~/sass-loader!./app/styles/app.scss ***!
   \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 256)();
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 257)();
 	// imports
 	
 	
