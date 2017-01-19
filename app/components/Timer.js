@@ -1,13 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 
 class Timer extends Component {
-render() {
-return (
-<div>
-Timer page
-</div>
-);
-}
+  render() {
+    return (
+      <div>
+        Timer page
+      </div>
+    );
+  }
 }
 
 Timer.propTypes = {
