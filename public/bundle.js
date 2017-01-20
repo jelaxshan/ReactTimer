@@ -28279,12 +28279,33 @@
 	
 	    _this.handleSetCountdown = function (seconds) {
 	      _this.setState({
-	        count: seconds
+	        count: seconds,
+	        countdownStatus: 'started'
 	      });
 	    };
 	
+	    _this.componentDidUpdate = function (prevProps, prevState) {
+	      if (_this.state.countdownStatus !== prevState.countdownStatus) {
+	        switch (_this.state.countdownStatus) {
+	          case 'started':
+	            _this.startTimer();
+	            break;
+	        }
+	      }
+	    };
+	
+	    _this.startTimer = function () {
+	      _this.timer = setInterval(function () {
+	        var newCount = _this.state.count - 1;
+	        _this.setState({
+	          count: newCount >= 0 ? newCount : 0
+	        });
+	      }, 1000);
+	    };
+	
 	    _this.state = {
-	      count: 0
+	      count: 0,
+	      countdownStatus: 'stopped'
 	    };
 	    return _this;
 	  }
@@ -28426,26 +28447,31 @@
 	var CountdownForm = function (_Component) {
 	  _inherits(CountdownForm, _Component);
 	
-	  function CountdownForm() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
+	  function CountdownForm(props, context) {
 	    _classCallCheck(this, CountdownForm);
 	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
+	    var _this = _possibleConstructorReturn(this, (CountdownForm.__proto__ || Object.getPrototypeOf(CountdownForm)).call(this, props, context));
 	
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CountdownForm.__proto__ || Object.getPrototypeOf(CountdownForm)).call.apply(_ref, [this].concat(args))), _this), _this.onSubmit = function (e) {
+	    _this.handleUserInput = function (input) {
+	      _this.setState({
+	        inputValue: input.target.value
+	      });
+	    };
+	
+	    _this.onSubmit = function (e) {
 	      e.preventDefault();
-	      var stringSeconds = _this.refs.seconds.value;
+	      var stringSeconds = _this.state.inputValue;
 	
 	      if (stringSeconds.match(/^[0-9]*$/)) {
-	        _this.refs.seconds.value = '';
+	        _this.state.inputValue = '';
 	        _this.props.onSetCountdown(parseInt(stringSeconds, 10));
 	      }
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	    };
+	
+	    _this.state = {
+	      inputValue: ''
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(CountdownForm, [{
@@ -28457,7 +28483,7 @@
 	        _react2.default.createElement(
 	          'form',
 	          { ref: 'form', onSubmit: this.onSubmit, className: 'countdown-form' },
-	          _react2.default.createElement('input', { type: 'text', ref: 'seconds', placeholder: 'Enter time in seconds' }),
+	          _react2.default.createElement('input', { type: 'text', value: this.state.inputValue, onChange: this.handleUserInput, placeholder: 'Enter time in seconds' }),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'button expanded' },
