@@ -113,7 +113,7 @@
   \********************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {"use strict";
 	
 	var _react = __webpack_require__(/*! react */ 8);
 	
@@ -133,29 +133,29 @@
 	
 	var _Countdown2 = _interopRequireDefault(_Countdown);
 	
-	var _Timer = __webpack_require__(/*! Timer */ 254);
+	var _Timer = __webpack_require__(/*! Timer */ 255);
 	
 	var _Timer2 = _interopRequireDefault(_Timer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// Load foundation
-	__webpack_require__(/*! style!css!foundation-sites/dist/foundation.min.css */ 255);
+	__webpack_require__(/*! style!css!foundation-sites/dist/foundation.min.css */ 256);
 	$(document).foundation();
 	
 	// App css
-	__webpack_require__(/*! style!css!sass!applicationStyles */ 259);
+	__webpack_require__(/*! style!css!sass!applicationStyles */ 260);
 	
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(
 	    _reactRouter.Route,
-	    { path: '/', component: _Main2.default },
-	    _react2.default.createElement(_reactRouter.Route, { path: 'countdown', component: _Countdown2.default }),
+	    { path: "/", component: _Main2.default },
+	    _react2.default.createElement(_reactRouter.Route, { path: "countdown", component: _Countdown2.default }),
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Timer2.default })
 	  )
-	), document.getElementById('app'));
+	), document.getElementById("app"));
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 7)))
 
 /***/ },
@@ -28079,7 +28079,7 @@
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28113,18 +28113,18 @@
 	  }
 	
 	  _createClass(Main, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(_Navigation2.default, null),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
+	          "div",
+	          { className: "row" },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'column small-centered medium-6 large-4' },
+	            "div",
+	            { className: "column small-centered medium-6 large-4" },
 	            this.props.children
 	          )
 	        )
@@ -28144,7 +28144,7 @@
   \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28176,52 +28176,52 @@
 	  }
 	
 	  _createClass(Navigation, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'top-bar' },
+	        "div",
+	        { className: "top-bar" },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'top-bar-left' },
+	          "div",
+	          { className: "top-bar-left" },
 	          _react2.default.createElement(
-	            'ul',
-	            { className: 'menu' },
+	            "ul",
+	            { className: "menu" },
 	            _react2.default.createElement(
-	              'li',
-	              { className: 'menu-text' },
-	              'React Timer App'
+	              "li",
+	              { className: "menu-text" },
+	              "React Timer App"
 	            ),
 	            _react2.default.createElement(
-	              'li',
+	              "li",
 	              null,
 	              _react2.default.createElement(
 	                _reactRouter.IndexLink,
-	                { to: '/', activeClassName: 'active-link' },
-	                'Timer'
+	                { to: "/", activeClassName: "active-link" },
+	                "Timer"
 	              )
 	            ),
 	            _react2.default.createElement(
-	              'li',
+	              "li",
 	              null,
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/countdown', activeClassName: 'active-link' },
-	                'Counter'
+	                { to: "/countdown", activeClassName: "active-link" },
+	                "Counter"
 	              )
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'top-bar-right' },
+	          "div",
+	          { className: "top-bar-right" },
 	          _react2.default.createElement(
-	            'ul',
-	            { className: 'menu' },
+	            "ul",
+	            { className: "menu" },
 	            _react2.default.createElement(
-	              'li',
-	              { className: 'menu-text' },
-	              'Created by Jelaxshan'
+	              "li",
+	              { className: "menu-text" },
+	              "Created by Jelaxshan"
 	            )
 	          )
 	        )
@@ -28241,7 +28241,7 @@
   \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28253,13 +28253,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Clock = __webpack_require__(/*! Clock */ 252);
+	var _Clock = __webpack_require__(/*! ./Clock */ 252);
 	
 	var _Clock2 = _interopRequireDefault(_Clock);
 	
 	var _CountdownForm = __webpack_require__(/*! ./CountdownForm */ 253);
 	
 	var _CountdownForm2 = _interopRequireDefault(_CountdownForm);
+	
+	var _Controls = __webpack_require__(/*! ./Controls */ 254);
+	
+	var _Controls2 = _interopRequireDefault(_Controls);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28278,17 +28282,20 @@
 	    var _this = _possibleConstructorReturn(this, (Countdown.__proto__ || Object.getPrototypeOf(Countdown)).call(this, props, context));
 	
 	    _this.handleSetCountdown = function (seconds) {
-	      _this.setState({
-	        count: seconds,
-	        countdownStatus: 'started'
-	      });
+	      _this.setState({ count: seconds, countdownStatus: "started" });
 	    };
 	
 	    _this.componentDidUpdate = function (prevProps, prevState) {
 	      if (_this.state.countdownStatus !== prevState.countdownStatus) {
 	        switch (_this.state.countdownStatus) {
-	          case 'started':
+	          case "started":
 	            _this.startTimer();
+	            break;
+	          case "stopped":
+	            _this.setState({ count: 0 });
+	          case "paused":
+	            clearInterval(_this.timer);
+	            _this.timer = undefined;
 	            break;
 	        }
 	      }
@@ -28297,30 +28304,40 @@
 	    _this.startTimer = function () {
 	      _this.timer = setInterval(function () {
 	        var newCount = _this.state.count - 1;
-	        _this.setState({
-	          count: newCount >= 0 ? newCount : 0
-	        });
+	        _this.setState({ count: newCount >= 0 ? newCount : 0 });
 	      }, 1000);
 	    };
 	
-	    _this.state = {
-	      count: 0,
-	      countdownStatus: 'stopped'
+	    _this.handleStatusChange = function (newStatus) {
+	      _this.setState({ countdownStatus: newStatus });
 	    };
+	
+	    _this.state = { count: 0, countdownStatus: "stopped" };
 	    return _this;
 	  }
 	
 	  _createClass(Countdown, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
-	      var count = this.state.count;
+	      var _this2 = this;
 	
+	      var _state = this.state,
+	          count = _state.count,
+	          countdownStatus = _state.countdownStatus;
+	
+	      var renderControlArea = function renderControlArea() {
+	        if (countdownStatus !== 'stopped') {
+	          return _react2.default.createElement(_Controls2.default, { countdownStatus: countdownStatus, onStatusChange: _this2.handleStatusChange });
+	        } else {
+	          return _react2.default.createElement(_CountdownForm2.default, { onSetCountdown: _this2.handleSetCountdown });
+	        }
+	      };
 	
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(_Clock2.default, { totalSeconds: count }),
-	        _react2.default.createElement(_CountdownForm2.default, { onSetCountdown: this.handleSetCountdown })
+	        renderControlArea()
 	      );
 	    }
 	  }]);
@@ -28424,7 +28441,7 @@
   \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28453,9 +28470,7 @@
 	    var _this = _possibleConstructorReturn(this, (CountdownForm.__proto__ || Object.getPrototypeOf(CountdownForm)).call(this, props, context));
 	
 	    _this.handleUserInput = function (input) {
-	      _this.setState({
-	        inputValue: input.target.value
-	      });
+	      _this.setState({ inputValue: input.target.value });
 	    };
 	
 	    _this.onSubmit = function (e) {
@@ -28463,31 +28478,34 @@
 	      var stringSeconds = _this.state.inputValue;
 	
 	      if (stringSeconds.match(/^[0-9]*$/)) {
-	        _this.state.inputValue = '';
+	        _this.state.inputValue = "";
 	        _this.props.onSetCountdown(parseInt(stringSeconds, 10));
 	      }
 	    };
 	
-	    _this.state = {
-	      inputValue: ''
-	    };
+	    _this.state = { inputValue: "" };
 	    return _this;
 	  }
 	
 	  _createClass(CountdownForm, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(
-	          'form',
-	          { ref: 'form', onSubmit: this.onSubmit, className: 'countdown-form' },
-	          _react2.default.createElement('input', { type: 'text', value: this.state.inputValue, onChange: this.handleUserInput, placeholder: 'Enter time in seconds' }),
+	          "form",
+	          { ref: "form", onSubmit: this.onSubmit, className: "countdown-form" },
+	          _react2.default.createElement("input", {
+	            type: "text",
+	            value: this.state.inputValue,
+	            onChange: this.handleUserInput,
+	            placeholder: "Enter time in seconds"
+	          }),
 	          _react2.default.createElement(
-	            'button',
-	            { className: 'button expanded' },
-	            'Start'
+	            "button",
+	            { className: "button expanded" },
+	            "Start"
 	          )
 	        )
 	      );
@@ -28503,12 +28521,106 @@
 
 /***/ },
 /* 254 */
+/*!************************************!*\
+  !*** ./app/components/Controls.js ***!
+  \************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Controls = function (_Component) {
+	  _inherits(Controls, _Component);
+	
+	  function Controls() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
+	    _classCallCheck(this, Controls);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Controls.__proto__ || Object.getPrototypeOf(Controls)).call.apply(_ref, [this].concat(args))), _this), _this.onStatusChange = function (newStatus) {
+	      return function () {
+	        _this.props.onStatusChange(newStatus);
+	      };
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+	
+	  _createClass(Controls, [{
+	    key: "render",
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var countdownStatus = this.props.countdownStatus;
+	
+	      var renderStartStopButton = function renderStartStopButton() {
+	        if (countdownStatus === "started") {
+	          return _react2.default.createElement(
+	            "button",
+	            { className: "button secondary", onClick: _this2.onStatusChange('paused') },
+	            "Pause"
+	          );
+	        } else if (countdownStatus === "paused") {
+	          return _react2.default.createElement(
+	            "button",
+	            { className: "button primary", onClick: _this2.onStatusChange('started') },
+	            "Start"
+	          );
+	        }
+	      };
+	
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "controls" },
+	        renderStartStopButton(),
+	        _react2.default.createElement(
+	          "button",
+	          { className: "button alert hollow", onClick: this.onStatusChange('stopped') },
+	          "Clear"
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Controls;
+	}(_react.Component);
+	
+	Controls.propTypes = {
+	  countdownStatus: _react2.default.PropTypes.string.isRequired,
+	  onStatusChange: _react2.default.PropTypes.func.isRequired
+	};
+	
+	exports.default = Controls;
+
+/***/ },
+/* 255 */
 /*!*********************************!*\
   !*** ./app/components/Timer.js ***!
   \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28538,12 +28650,12 @@
 	  }
 	
 	  _createClass(Timer, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
-	        'Timer page'
+	        "Timer page"
 	      );
 	    }
 	  }]);
@@ -28556,7 +28668,7 @@
 	exports.default = Timer;
 
 /***/ },
-/* 255 */
+/* 256 */
 /*!************************************************************************************!*\
   !*** ./~/style-loader!./~/css-loader!./~/foundation-sites/dist/foundation.min.css ***!
   \************************************************************************************/
@@ -28565,10 +28677,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../css-loader!./foundation.min.css */ 256);
+	var content = __webpack_require__(/*! !./../../css-loader!./foundation.min.css */ 257);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 258)(content, {});
+	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 259)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -28585,13 +28697,13 @@
 	}
 
 /***/ },
-/* 256 */
+/* 257 */
 /*!*******************************************************************!*\
   !*** ./~/css-loader!./~/foundation-sites/dist/foundation.min.css ***!
   \*******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 257)();
+	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 258)();
 	// imports
 	
 	
@@ -28602,7 +28714,7 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -28661,7 +28773,7 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -28916,7 +29028,7 @@
 
 
 /***/ },
-/* 259 */
+/* 260 */
 /*!*****************************************************************************!*\
   !*** ./~/style-loader!./~/css-loader!./~/sass-loader!./app/styles/app.scss ***!
   \*****************************************************************************/
@@ -28925,10 +29037,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./app.scss */ 260);
+	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./app.scss */ 261);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 258)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 259)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -28945,18 +29057,18 @@
 	}
 
 /***/ },
-/* 260 */
+/* 261 */
 /*!************************************************************!*\
   !*** ./~/css-loader!./~/sass-loader!./app/styles/app.scss ***!
   \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 257)();
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 258)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active-link {\n  font-weight: bold; }\n\n.clock {\n  align-items: center;\n  background-color: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: white;\n  font-size: 2.25rem;\n  font-weight: 300; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active-link {\n  font-weight: bold; }\n\n.clock {\n  align-items: center;\n  background-color: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: white;\n  font-size: 2.25rem;\n  font-weight: 300; }\n\n.controls {\n  display: flex;\n  margin-left: 2rem;\n  justify-content: centre; }\n  .controls .button {\n    padding: .75rem 3rem; }\n  .controls .button:first-child {\n    margin-right: 1.5rem; }\n", ""]);
 	
 	// exports
 

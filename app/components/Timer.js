@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component, PropTypes} from "react";
 
 class Timer extends Component {
   render() {
@@ -10,8 +10,6 @@ class Timer extends Component {
   }
 }
 
-Timer.propTypes = {
-
-};
+Timer.propTypes = {};
 
 export default Timer;
