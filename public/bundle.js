@@ -28301,10 +28301,19 @@
 	      }
 	    };
 	
+	    _this.componentWillUnmount = function () {
+	      clearInterval(_this.timer);
+	      _this.timer = undefined;
+	    };
+	
 	    _this.startTimer = function () {
 	      _this.timer = setInterval(function () {
 	        var newCount = _this.state.count - 1;
 	        _this.setState({ count: newCount >= 0 ? newCount : 0 });
+	
+	        if (newCount === 0) {
+	          _this.setState({ countdownStatus: 'stopped' });
+	        }
 	      }, 1000);
 	    };
 	
@@ -28564,36 +28573,34 @@
 	      return function () {
 	        _this.props.onStatusChange(newStatus);
 	      };
+	    }, _this.renderStartStopButton = function () {
+	      var countdownStatus = _this.props.countdownStatus;
+	
+	
+	      if (countdownStatus === "started") {
+	        return _react2.default.createElement(
+	          "button",
+	          { className: "button secondary", onClick: _this.onStatusChange('paused') },
+	          "Pause"
+	        );
+	      } else if (countdownStatus === "paused") {
+	        return _react2.default.createElement(
+	          "button",
+	          { className: "button primary", onClick: _this.onStatusChange('started') },
+	          "Start"
+	        );
+	      }
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
 	  _createClass(Controls, [{
 	    key: "render",
 	    value: function render() {
-	      var _this2 = this;
-	
-	      var countdownStatus = this.props.countdownStatus;
-	
-	      var renderStartStopButton = function renderStartStopButton() {
-	        if (countdownStatus === "started") {
-	          return _react2.default.createElement(
-	            "button",
-	            { className: "button secondary", onClick: _this2.onStatusChange('paused') },
-	            "Pause"
-	          );
-	        } else if (countdownStatus === "paused") {
-	          return _react2.default.createElement(
-	            "button",
-	            { className: "button primary", onClick: _this2.onStatusChange('started') },
-	            "Start"
-	          );
-	        }
-	      };
 	
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "controls" },
-	        renderStartStopButton(),
+	        this.renderStartStopButton(),
 	        _react2.default.createElement(
 	          "button",
 	          { className: "button alert hollow", onClick: this.onStatusChange('stopped') },
